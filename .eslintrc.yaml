@@ -1,0 +1,39 @@
+# npm i -g typescript
+# npm i --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-prettier prettier
+
+env:
+  browser: true
+  es6: true
+  node: true
+extends:
+  - plugin:@typescript-eslint/recommended
+  - plugin:prettier/recommended
+  - plugin:react/recommended
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaVersion: 2018
+  jsx: true
+  sourceType: module
+plugins:
+  - "@typescript-eslint/eslint-plugin"
+  - prettier
+  - react
+rules:
+  "@typescript-eslint/explicit-module-boundary-types": off
+  "@typescript-eslint/no-unused-vars": 0 # false positive on function types
+  arrow-parens:
+    - error
+    - always
+  semi:
+    - error
+    - always
+  no-undef: 0 # not required in ts
+  no-var: 2
+  prettier/prettier:
+    - error
+    - trailingComma: "es5"
+    - useePrettierrc: true
+  react/react-in-jsx-scope: off
+settings:
+  react:
+    version: detect

@@ -1,0 +1,59 @@
+{
+    "name": "keycloakify",
+    "version": "1.0.0",
+    "description": "keycloak themes",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/hugocortes/keycloak-themes"
+    },
+    "scripts": {
+        "build": "react-scripts build",
+        "keycloak": "yarn build && build-keycloak-theme",
+        "lint": "./node_modules/.bin/eslint --ext .ts,.tsx src/",
+        "lint:fix": "./node_modules/.bin/eslint --fix --ext .ts,.tsx src/",
+        "start": "react-scripts start",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "license": "MIT",
+    "keywords": [],
+    "dependencies": {
+        "keycloakify": "^2.0.0",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "web-vitals": "^1.0.1"
+    },
+    "devDependencies": {
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
+        "@types/node": "^12.20.15",
+        "@types/react": "^17.0.0",
+        "@types/react-dom": "^17.0.0",
+        "@typescript-eslint/eslint-plugin": "^4.28.1",
+        "@typescript-eslint/parser": "^4.28.1",
+        "eslint": "^7.29.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-react": "^7.24.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "node-sass": "^5.0.0",
+        "prettier": "^2.3.2",
+        "react-scripts": "4.0.2",
+        "typescript": "^4.1.2",
+        "webpack": "4.44.2"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
