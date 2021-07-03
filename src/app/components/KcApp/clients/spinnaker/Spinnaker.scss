@@ -1,0 +1,18 @@
+.login-pf body {
+  background: no-repeat center center fixed !important;
+  background-color: rgba(19, 155, 180, 1) !important;
+  height: 125vh !important;
+}
+
+.login-pf-page .login-pf-page-header {
+  margin-bottom: 10px !important;
+}
+
+#kc-logo-wrapper, div.kc-logo-text {
+  background-image: url(../../../../assets/spinnaker/img/banner.png) !important;
+}
+
+div.kc-logo-text {
+  background-size: 250px 90px !important;
+  height: 100px !important;
+}
