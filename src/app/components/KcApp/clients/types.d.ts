@@ -6,7 +6,6 @@ export const Clients = [
   "insomnia",
   "miniflux",
   "pomerium",
-  "sonarr",
   "spinnaker",
 ] as const;
 

@@ -9,7 +9,6 @@ import helmFaviconUrl from "app/assets/helm/img/favicon.ico";
 import insomniaFaviconUrl from "app/assets/insomnia/img/favicon.ico";
 import minifluxFaviconUrl from "app/assets/miniflux/img/favicon.ico";
 import pomeriumFaviconUrl from "app/assets/pomerium/img/favicon.ico";
-import sonarrFaviconUrl from "app/assets/sonarr/img/favicon.ico";
 import spinnakerFaviconUrl from "app/assets/spinnaker/img/favicon.ico";
 
 /**
@@ -61,12 +60,6 @@ export const clientConfig: { [key in Client]: ClientConfig } = {
   pomerium: {
     component: DefaultLogin,
     favicon: pomeriumFaviconUrl,
-    hasCustomStyles: true,
-    hasLogo: true,
-  },
-  sonarr: {
-    component: DefaultLogin,
-    favicon: sonarrFaviconUrl,
     hasCustomStyles: true,
     hasLogo: true,
   },
