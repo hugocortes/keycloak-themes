@@ -9,13 +9,20 @@ import {
   clientConfig,
 } from "./clients";
 import type { KcContextLoginProps } from "./types";
-import "./index.scss";
+import "./clients/default/Default.scss";
 
 export const Login = ({ kcContext, ...kcProps }: KcContextLoginProps) => {
   const { kcLanguageTag } = useKcLanguageTag();
   kcMessages[kcLanguageTag].loginTitle = "Log in to {0}";
 
-  const props = { kcContext, ...kcProps };
+  const props = {
+    kcContext,
+    ...kcProps,
+    // remove default login css for easier class overriding
+    // TODO fix webpack removing !important from url()
+    styles: [],
+    stylesCommon: ["lib/zocial/zocial.css"],
+  };
 
   if (kcContext.client) {
     const { clientId, name } = kcContext.client;
@@ -33,14 +40,12 @@ export const Login = ({ kcContext, ...kcProps }: KcContextLoginProps) => {
           kcMessages[kcLanguageTag].loginTitleHtml =
             '<div class="kc-logo-text"></div>';
         }
-        if (clientConfig[title].component) {
-          return generateLazyComponent(
-            DefaultLogin,
-            clientConfig[title].component,
-            props
-          );
-        }
       }
+      return generateLazyComponent(
+        DefaultLogin,
+        clientConfig[title].component,
+        props
+      );
     }
   }
 

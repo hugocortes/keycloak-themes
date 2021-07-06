@@ -690,17 +690,3 @@ ul#kc-totp-supported-apps {
 /**
  * Override based on last imported
  **/
-
-.login-pf body {
-  background: url(../../../../assets/grafana/img/login_background_dark.svg) no-repeat center center fixed !important;
-  background-size: cover;
-  height: 100%;
-}
-
-#kc-logo-wrapper, div.kc-logo-text {
-  background-image: url("../../../../assets/grafana/img/logo-text-300x63.png");
-}
-
-.card-pf {
-  border-top-color: transparent;
-}

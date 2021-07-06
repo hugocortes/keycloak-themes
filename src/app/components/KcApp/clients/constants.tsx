@@ -15,16 +15,21 @@ import spinnakerFaviconUrl from "app/assets/spinnaker/img/favicon.ico";
 /**
  * Lazy import client components for code splitting
  */
-const SpinnakerLogin = lazy(() => {
-  return Promise.resolve(import("./spinnaker/Spinnaker"));
+const DefaultLogin = lazy(() => {
+  return Promise.resolve(import("./default/Default"));
 });
+
 const GrafanaLogin = lazy(() => {
   return Promise.resolve(import("./grafana/Grafana"));
+});
+const SpinnakerLogin = lazy(() => {
+  return Promise.resolve(import("./spinnaker/Spinnaker"));
 });
 
 // TODO how to rely on component for custom styles and logo?
 export const clientConfig: { [key in Client]: ClientConfig } = {
   bookstack: {
+    component: DefaultLogin,
     favicon: bookstackFaviconUrl,
     hasCustomStyles: true,
     hasLogo: false,
@@ -36,26 +41,31 @@ export const clientConfig: { [key in Client]: ClientConfig } = {
     hasLogo: true,
   },
   helm: {
+    component: DefaultLogin,
     favicon: helmFaviconUrl,
     hasCustomStyles: false,
     hasLogo: false,
   },
   insomnia: {
+    component: DefaultLogin,
     favicon: insomniaFaviconUrl,
     hasCustomStyles: false,
     hasLogo: false,
   },
   miniflux: {
+    component: DefaultLogin,
     favicon: minifluxFaviconUrl,
     hasCustomStyles: false,
     hasLogo: false,
   },
   pomerium: {
+    component: DefaultLogin,
     favicon: pomeriumFaviconUrl,
     hasCustomStyles: true,
     hasLogo: true,
   },
   sonarr: {
+    component: DefaultLogin,
     favicon: sonarrFaviconUrl,
     hasCustomStyles: true,
     hasLogo: true,
