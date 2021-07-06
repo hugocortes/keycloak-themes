@@ -18,8 +18,14 @@ const DefaultLogin = lazy(() => {
   return Promise.resolve(import("./default/Default"));
 });
 
+const BookstackLogin = lazy(() => {
+  return Promise.resolve(import("./bookstack/Bookstack"));
+});
 const GrafanaLogin = lazy(() => {
   return Promise.resolve(import("./grafana/Grafana"));
+});
+const PomeriumLogin = lazy(() => {
+  return Promise.resolve(import("./pomerium/Pomerium"));
 });
 const SpinnakerLogin = lazy(() => {
   return Promise.resolve(import("./spinnaker/Spinnaker"));
@@ -28,7 +34,7 @@ const SpinnakerLogin = lazy(() => {
 // TODO how to rely on component for custom styles and logo?
 export const clientConfig: { [key in Client]: ClientConfig } = {
   bookstack: {
-    component: DefaultLogin,
+    component: BookstackLogin,
     favicon: bookstackFaviconUrl,
     hasCustomStyles: true,
     hasLogo: false,
@@ -58,7 +64,7 @@ export const clientConfig: { [key in Client]: ClientConfig } = {
     hasLogo: false,
   },
   pomerium: {
-    component: DefaultLogin,
+    component: PomeriumLogin,
     favicon: pomeriumFaviconUrl,
     hasCustomStyles: true,
     hasLogo: true,
