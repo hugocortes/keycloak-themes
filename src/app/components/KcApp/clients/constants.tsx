@@ -36,43 +36,36 @@ export const clientConfig: { [key in Client]: ClientConfig } = {
   bookstack: {
     component: BookstackLogin,
     favicon: bookstackFaviconUrl,
-    hasCustomStyles: true,
     hasLogo: false,
   },
   grafana: {
     component: GrafanaLogin,
     favicon: grafanaFaviconUrl,
-    hasCustomStyles: true,
     hasLogo: true,
   },
   helm: {
     component: DefaultLogin,
     favicon: helmFaviconUrl,
-    hasCustomStyles: false,
     hasLogo: false,
   },
   insomnia: {
     component: DefaultLogin,
     favicon: insomniaFaviconUrl,
-    hasCustomStyles: false,
     hasLogo: false,
   },
   miniflux: {
     component: DefaultLogin,
     favicon: minifluxFaviconUrl,
-    hasCustomStyles: false,
     hasLogo: false,
   },
   pomerium: {
     component: PomeriumLogin,
     favicon: pomeriumFaviconUrl,
-    hasCustomStyles: true,
     hasLogo: true,
   },
   spinnaker: {
     component: SpinnakerLogin,
     favicon: spinnakerFaviconUrl,
-    hasCustomStyles: true,
     hasLogo: true,
   },
 };

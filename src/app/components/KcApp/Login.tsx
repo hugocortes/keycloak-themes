@@ -13,7 +13,6 @@ import "./clients/default/Default.scss";
 
 export const Login = ({ kcContext, ...kcProps }: KcContextLoginProps) => {
   const { kcLanguageTag } = useKcLanguageTag();
-  kcMessages[kcLanguageTag].loginTitle = "Log in to {0}";
 
   const props = {
     kcContext,
@@ -28,22 +27,20 @@ export const Login = ({ kcContext, ...kcProps }: KcContextLoginProps) => {
     const { clientId, name } = kcContext.client;
 
     const title = name || clientId;
-    setTitle(title);
+    setTitle(name || clientId);
     kcMessages[kcLanguageTag].loginTitleHtml = title;
 
-    if (isClient(title)) {
-      if (clientConfig[title].favicon) {
-        setFav(clientConfig[title].favicon!);
+    if (isClient(clientId)) {
+      if (clientConfig[clientId].favicon) {
+        setFav(clientConfig[clientId].favicon!);
       }
-      if (clientConfig[title].hasCustomStyles) {
-        if (clientConfig[title].hasLogo) {
-          kcMessages[kcLanguageTag].loginTitleHtml =
-            '<div class="kc-logo-text"></div>';
-        }
+      if (clientConfig[clientId].hasLogo) {
+        kcMessages[kcLanguageTag].loginTitleHtml =
+          '<div class="kc-logo-text"></div>';
       }
       return generateLazyComponent(
         DefaultLogin,
-        clientConfig[title].component,
+        clientConfig[clientId].component,
         props
       );
     }
