@@ -1,0 +1,15 @@
+embed-server --std-out=echo --server-config=standalone-ha.xml
+echo "disabling theme cache for standalone-ha"
+
+/subsystem=keycloak-server/theme=defaults/:write-attribute(name=cacheThemes,value=false)
+/subsystem=keycloak-server/theme=defaults/:write-attribute(name=cacheTemplates,value=false)
+/subsystem=keycloak-server/theme=defaults/:write-attribute(name=staticMaxAge,value=-1)
+stop-embedded-server
+
+embed-server --std-out=echo --server-config=standalone.xml
+echo "disabling theme cache for standalone"
+
+/subsystem=keycloak-server/theme=defaults/:write-attribute(name=cacheThemes,value=false)
+/subsystem=keycloak-server/theme=defaults/:write-attribute(name=cacheTemplates,value=false)
+/subsystem=keycloak-server/theme=defaults/:write-attribute(name=staticMaxAge,value=-1)
+stop-embedded-server

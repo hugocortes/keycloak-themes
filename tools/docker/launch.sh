@@ -6,12 +6,13 @@ if [ ! -d "./build_keycloak" ]; then
 fi
 
 docker run -d \
-  --name keycloak \
+  --name keycloakify \
   -e DB_VENDOR=h2 \
   -e KEYCLOAK_USER=admin \
   -e KEYCLOAK_PASSWORD=admin \
-  -e KEYCLOAK_IMPORT=/tmp/json/realm-example.json \
+  -e KEYCLOAK_IMPORT=/tmp/realms/example.json \
   -v $(pwd)/build_keycloak:/tmp/build_keycloak \
-  -v $(pwd)/tools/json:/tmp/json \
+  -v $(pwd)/tools/config/cli:/opt/jboss/startup-scripts \
+  -v $(pwd)/tools/config/realms:/tmp/realms \
   -p 8080:8080 \
   jboss/keycloak:14.0.0
