@@ -3,13 +3,13 @@
  **/
 
 .login-pf body {
-  background: url(../../../../assets/grafana/img/login_background_dark.svg) no-repeat center center fixed !important;
+  background: url("./img/background.svg") no-repeat center center fixed !important;
   background-size: cover;
   height: 100%;
 }
 
 #kc-logo-wrapper, div.kc-logo-text {
-  background-image: url("../../../../assets/grafana/img/logo-text-300x63.png");
+  background-image: url("./img/logo.png");
 }
 
 .card-pf {

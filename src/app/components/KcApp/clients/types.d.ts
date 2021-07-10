@@ -7,7 +7,5 @@ export function isClient(possibleClient: string): possibleClient is Client {
 }
 
 export type ClientConfig = {
-  component: LazyExoticComponent<MemoExoticComponent<KcContextLoginComponent>>;
-  favicon?: string;
-  hasLogo: boolean;
+  login: LazyExoticComponent<MemoExoticComponent<KcContextLoginComponent>>;
 };

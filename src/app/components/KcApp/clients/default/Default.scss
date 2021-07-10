@@ -3,13 +3,13 @@
  **/
 
 .login-pf body {
-  background: url("../../../../assets/default/img/keycloak-bg.png") no-repeat center center fixed;
+  background: url("./img/keycloak-bg.png") no-repeat center center fixed;
   background-size: cover;
   height: 100%;
 }
 
 #kc-logo-wrapper {
-  background-image: url(../../../../assets//default/img/keycloak-logo.png);
+  background-image: url("./img/keycloak-logo.png");
   background-repeat: no-repeat;
   height: 63px;
   width: 300px;
@@ -17,7 +17,7 @@
 }
 
 div.kc-logo-text {
-  background-image: url(../../../../assets//default/img/keycloak-logo-text.png);
+  background-image: url("./img/keycloak-logo-text.png");
   background-repeat: no-repeat;
   height: 63px;
   width: 300px;

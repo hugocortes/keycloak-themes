@@ -4,7 +4,6 @@ import { Login as DefaultLogin } from "keycloakify/lib/components/Login";
 import {
   generateLazyComponent,
   setTitle,
-  setFav,
   isClient,
   clientConfig,
 } from "./clients";
@@ -18,7 +17,6 @@ export const Login = ({ kcContext, ...kcProps }: KcContextLoginProps) => {
     kcContext,
     ...kcProps,
     // remove default login css for easier class overriding
-    // TODO fix webpack removing !important from url()
     styles: [],
     stylesCommon: ["lib/zocial/zocial.css"],
   };
@@ -31,16 +29,9 @@ export const Login = ({ kcContext, ...kcProps }: KcContextLoginProps) => {
     kcMessages[kcLanguageTag].loginTitleHtml = title;
 
     if (isClient(clientId)) {
-      if (clientConfig[clientId].favicon) {
-        setFav(clientConfig[clientId].favicon!);
-      }
-      if (clientConfig[clientId].hasLogo) {
-        kcMessages[kcLanguageTag].loginTitleHtml =
-          '<div class="kc-logo-text"></div>';
-      }
       return generateLazyComponent(
         DefaultLogin,
-        clientConfig[clientId].component,
+        clientConfig[clientId].login,
         props
       );
     }

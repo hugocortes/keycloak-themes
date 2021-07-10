@@ -1,3 +1,7 @@
+import { lazy } from "react";
+
+import { Client, ClientConfig } from "./types";
+
 // TODO how to make this dynamic
 export const Clients = [
   "bookstack",
@@ -8,19 +12,6 @@ export const Clients = [
   "pomerium",
   "spinnaker",
 ] as const;
-
-import { lazy } from "react";
-
-import { Client, ClientConfig } from "./types";
-
-// TODO perhaps move to a public bucket?
-import bookstackFaviconUrl from "app/assets/bookstack/img/favicon.ico";
-import grafanaFaviconUrl from "app/assets/grafana/img/favicon.ico";
-import helmFaviconUrl from "app/assets/helm/img/favicon.ico";
-import insomniaFaviconUrl from "app/assets/insomnia/img/favicon.ico";
-import minifluxFaviconUrl from "app/assets/miniflux/img/favicon.ico";
-import pomeriumFaviconUrl from "app/assets/pomerium/img/favicon.ico";
-import spinnakerFaviconUrl from "app/assets/spinnaker/img/favicon.ico";
 
 /**
  * Lazy import client components for code splitting
@@ -43,40 +34,28 @@ const SpinnakerLogin = lazy(() => {
 });
 
 // TODO how to rely on component for custom styles and logo?
-export const clientConfig: { [key in Client]: ClientConfig } = {
+export const clientConfig: {
+  [key in Client]: ClientConfig;
+} = {
   bookstack: {
-    component: BookstackLogin,
-    favicon: bookstackFaviconUrl,
-    hasLogo: false,
+    login: BookstackLogin,
   },
   grafana: {
-    component: GrafanaLogin,
-    favicon: grafanaFaviconUrl,
-    hasLogo: true,
+    login: GrafanaLogin,
   },
   helm: {
-    component: DefaultLogin,
-    favicon: helmFaviconUrl,
-    hasLogo: false,
+    login: DefaultLogin,
   },
   insomnia: {
-    component: DefaultLogin,
-    favicon: insomniaFaviconUrl,
-    hasLogo: false,
+    login: DefaultLogin,
   },
   miniflux: {
-    component: DefaultLogin,
-    favicon: minifluxFaviconUrl,
-    hasLogo: false,
+    login: DefaultLogin,
   },
   pomerium: {
-    component: PomeriumLogin,
-    favicon: pomeriumFaviconUrl,
-    hasLogo: true,
+    login: PomeriumLogin,
   },
   spinnaker: {
-    component: SpinnakerLogin,
-    favicon: spinnakerFaviconUrl,
-    hasLogo: true,
+    login: SpinnakerLogin,
   },
 };
