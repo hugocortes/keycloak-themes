@@ -1,13 +1,4 @@
-// TODO how to make this dynamic
-export const Clients = [
-  "bookstack",
-  "grafana",
-  "helm",
-  "insomnia",
-  "miniflux",
-  "pomerium",
-  "spinnaker",
-] as const;
+import { Clients } from "./generated";
 
 export type Client = typeof Clients[number];
 

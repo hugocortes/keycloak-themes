@@ -1,3 +1,14 @@
+// TODO how to make this dynamic
+export const Clients = [
+  "bookstack",
+  "grafana",
+  "helm",
+  "insomnia",
+  "miniflux",
+  "pomerium",
+  "spinnaker",
+] as const;
+
 import { lazy } from "react";
 
 import { Client, ClientConfig } from "./types";
