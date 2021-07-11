@@ -1,5 +1,5 @@
 import { kcMessages, useKcLanguageTag } from "keycloakify";
-import { Login as DefaultLogin } from "keycloakify/lib/components/Login";
+import DefaultLogin from "./clients/default";
 
 import {
   generateLazyComponent,
@@ -8,7 +8,7 @@ import {
   clientConfig,
 } from "./clients";
 import type { KcContextLoginProps } from "./types";
-import "./clients/default/Default.scss";
+import "./clients/default/index.scss";
 
 export const Login = ({ kcContext, ...kcProps }: KcContextLoginProps) => {
   const { kcLanguageTag } = useKcLanguageTag();
