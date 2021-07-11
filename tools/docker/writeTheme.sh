@@ -1,6 +1,7 @@
 #!/bin/sh
 
 rm -rf build_keycloak/* build/* public/keycloak_static/*
+npm run generate
 yarn keycloak
 
 docker exec -it keycloakify \
