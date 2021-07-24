@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as ts from "typescript";
-import { createImport } from "./utils";
+import { createImport, createLeadingComment, printStatements } from "./utils";
 
 const tsf = ts.factory;
 
@@ -52,16 +52,9 @@ export async function generateTypes(clients: string[]) {
 
   const root: ts.Statement[] = [];
 
-  root.push(
-    ts.addSyntheticLeadingComment(
-      tsf.createEmptyStatement(),
-      ts.SyntaxKind.MultiLineCommentTrivia,
-      "Auto-generated file, do not modify"
-    )
-  );
-
-  root.push(await createImport("react", ["lazy"]));
-  root.push(await createImport("./types", ["Client", "ClientConfig"]));
+  root.push(createLeadingComment("Auto-generated file, do not modify"));
+  root.push(createImport("react", ["lazy"]));
+  root.push(createImport("./types", ["ClientConfig"]));
 
   root.push(
     tsf.createVariableStatement(
@@ -85,13 +78,18 @@ export async function generateTypes(clients: string[]) {
     )
   );
 
-  // const defaultComponent = {
-  //   name: "DefaultLogin",
-  //   path: "./default",
-  // };
-  // root.push(
-  //   await generateComponentImport(defaultComponent.name, defaultComponent.path)
-  // );
+  root.push(
+    tsf.createTypeAliasDeclaration(
+      undefined,
+      tsf.createModifiersFromModifierFlags(ts.ModifierFlags.Export),
+      tsf.createIdentifier("Client"),
+      undefined,
+      tsf.createIndexedAccessTypeNode(
+        tsf.createTypeQueryNode(tsf.createIdentifier("Clients")),
+        tsf.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword)
+      )
+    )
+  );
 
   await Promise.all(
     clients.map(async (client) => {
@@ -132,18 +130,8 @@ export async function generateTypes(clients: string[]) {
     )
   );
 
-  const file = ts.createSourceFile(
-    "_.ts",
-    "",
-    ts.ScriptTarget.ES2020,
-    false,
-    ts.ScriptKind.TSX
-  );
-  (file.statements as any) = tsf.createNodeArray(root); // readonly var
-
-  const types = ts.createPrinter().printFile(file);
-
-  fs.writeFileSync(generatedDest, types, {
+  const statements = printStatements(root);
+  fs.writeFileSync(generatedDest, statements, {
     encoding: "utf-8",
   });
 }
