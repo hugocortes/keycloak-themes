@@ -10,19 +10,27 @@ installation:
 
 1. `npm i -g ts-node` required to generate client tsx
 
-the following script is intended to create a temporary keycloak container. not meant to maintain any persistance as we are only testing the themes. keycloak will be started with an `example` realm which is where theme testing should be contained.
+the following script is intended to create a temporary keycloak container. not meant to maintain any persistance as we are only testing the themes. keycloak will be started with an `example` realm which is where theme testing should be contained. username and password is `admin` / `admin`.
 
 ```sh
-./tools/docker/launch.s
+./tools/docker/launch.sh
 
-# run as needed
+# run as needed after making theme updates
 ./tools/docker/writeTheme.sh
 ```
 
 file generation:
 
 1. download assets and place in `tools/generator/assets` with `{client}/*` format
-2. `ts-node --compiler-options "{\"module\":\"commonjs\"}" tools/generator` to generate ts files
+2. run `npm run generate` or `ts-node --compiler-options "{\"module\":\"commonjs\"}" tools/generator` to generate ts files
+
+when clients have been configured on keycloak instance:
+
+1. go to https://www.keycloak.org/app/ . Click "Save" and then "Sign in".
+
+## deployment
+
+when ready to deploy, run: `npm run keycloak`. this will create a `.jar` file (build_keycloak/target/keycloakify-keycloak-theme-1.0.0.jar) which will need to be added to your keycloak's theme directory.
 
 ## troubleshooting
 
