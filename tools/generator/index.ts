@@ -2,7 +2,7 @@ import * as fs from "fs";
 import { generateComponent } from "./component";
 import { generateTypes } from "./types";
 
-async function getDirectories(src: string) {
+export async function getDirectories(src: string) {
   return fs
     .readdirSync(src, { withFileTypes: true })
     .filter((dir) => dir.isDirectory())
