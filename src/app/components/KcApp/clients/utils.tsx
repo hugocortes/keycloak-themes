@@ -1,6 +1,6 @@
 import { LazyExoticComponent, MemoExoticComponent, Suspense } from "react";
 
-import { KcContextLoginProps } from "../types";
+import { KcContextProps } from "../types";
 
 /**
  * Set the favicon to provided location
@@ -26,11 +26,11 @@ export function setTitle(client: string) {
  * Generates the lazy component wrapped in <Suspense>
  */
 export function generateLazyComponent(
-  DefaultComponent: MemoExoticComponent<(props: any) => JSX.Element>,
+  DefaultComponent: MemoExoticComponent<(props: KcContextProps) => JSX.Element>,
   Component: LazyExoticComponent<
-    MemoExoticComponent<(props: any) => JSX.Element>
+    MemoExoticComponent<(props: KcContextProps) => JSX.Element>
   >,
-  props: KcContextLoginProps
+  props: KcContextProps
 ) {
   return (
     <Suspense fallback={<DefaultComponent {...props} />}>

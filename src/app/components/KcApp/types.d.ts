@@ -22,3 +22,5 @@ export type KcContextLoginComponent = ({
   kcContext,
   ...props
 }: KcContextLoginProps) => JSX.Element;
+
+export type KcContextProps = KcContextLoginProps;

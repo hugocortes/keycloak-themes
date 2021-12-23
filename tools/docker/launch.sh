@@ -15,4 +15,4 @@ docker run -d \
   -v $(pwd)/tools/config/cli:/opt/jboss/startup-scripts \
   -v $(pwd)/tools/config/realms:/tmp/realms \
   -p 8080:8080 \
-  jboss/keycloak:14.0.0
+  jboss/keycloak:16.0.0

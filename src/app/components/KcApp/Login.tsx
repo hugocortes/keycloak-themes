@@ -18,7 +18,7 @@ export const Login = ({ kcContext, ...kcProps }: KcContextLoginProps) => {
     ...kcProps,
     // remove default login css for easier class overriding
     styles: [],
-    stylesCommon: ["lib/zocial/zocial.css"],
+    stylesCommon: [],
   };
 
   if (kcContext.client) {
@@ -26,7 +26,10 @@ export const Login = ({ kcContext, ...kcProps }: KcContextLoginProps) => {
 
     const title = name || clientId;
     setTitle(name || clientId);
-    kcMessages[kcLanguageTag].loginTitleHtml = title;
+
+    if ((kcMessages as any)[kcLanguageTag as any]) {
+      (kcMessages as any)[kcLanguageTag].loginTitleHtml = title;
+    }
 
     if (isClient(clientId)) {
       return generateLazyComponent(
