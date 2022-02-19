@@ -36,3 +36,4 @@ when ready to deploy, run: `npm run keycloak`. this will create a `.jar` file (b
 
 - This may be required in your .env `IMAGE_INLINE_SIZE_LIMIT=10` due to react-scripts setting a default maximum size limit when building for production. Found from their [webpack.config.js](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/config/webpack.config.js) file.
 - ts-node must be ran with `--compiler-options "{\"module\":\"commonjs\"}"` when generating ts files as nextjs is rewriting module to esnext
+- `node-sass` was replaced with `sass` as m1 mac was not supported and ran into installation issues
