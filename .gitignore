@@ -109,5 +109,5 @@ build*/
 src/app/components/KcApp/clients/generated.ts
 src/app/components/KcApp/clients/generated
 !src/app/components/KcApp/clients/generated/.gitignore
-tools/generator/assets
+# tools/generator/assets
 example.generated.json

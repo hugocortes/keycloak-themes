@@ -1,0 +1,18 @@
+/**
+ * Override based on last imported
+ **/
+
+.login-pf body {
+  background: url("./background.svg") no-repeat center center fixed !important;
+  background-size: cover;
+  height: 100%;
+}
+
+#kc-logo-wrapper,
+div.kc-logo-text {
+  background-image: url("./logo.png");
+}
+
+.card-pf {
+  border-top-color: transparent;
+}
